@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-services/firebase.js
+src/services/firebase.js

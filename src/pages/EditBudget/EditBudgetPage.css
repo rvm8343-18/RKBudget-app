@@ -1,0 +1,25 @@
+#submit-btn {
+    margin: 16px 16px 0 16px;
+}
+
+#add-category-form {
+    text-align: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    #budget-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 8px;
+    }
+}

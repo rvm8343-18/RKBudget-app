@@ -88,7 +88,7 @@ function EditBudgetPage() {
         <div>
             <h1 className="positive">Set Monthly Budget</h1>
             <div className="inputs">
-                <InputSection header={<h3>Get Budget:</h3>}>
+                <InputSection header={<h2>Get Budget:</h2>}>
                     <div id="get-budget-inputs">
                         <div className="input-option">
                             <label htmlFor="month">Month:</label>
@@ -126,7 +126,7 @@ function EditBudgetPage() {
                     </div>
                 </InputSection>
 
-                <InputSection header={<h3>Add Category:</h3>}>
+                <InputSection header={<h2>Add Category:</h2>}>
                     <form id="add-category-form" onSubmit={handleSubmit}>
                         <div className="input-option">
                             <label htmlFor="cat-name">Category Name:</label>
@@ -167,7 +167,7 @@ function EditBudgetPage() {
                 </InputSection>
 
                 <div id="budget-list-section">
-                    <h2>Budget So Far...</h2>
+                    <h2 id="budget-list-header">Budget So Far...</h2>
                     <ul id="budget-cards">
                         {categories.map((e) => {
                             let limitDisplay;
@@ -178,14 +178,17 @@ function EditBudgetPage() {
                             }
 
                             return (
-                                <Card header={<div className="card-header">{e.name}</div>}>
-                                    <li key={e.id} className="budgetElem">
-                                        {limitDisplay}
+                                <li key={e.id} >
+                                    <Card header={<div className="card-header">{e.name}</div>}>
+                                        <div className="budgetElem">
+                                            {limitDisplay}
+                                        </div>
                                         <button id={e.id} className="delete-btn" hidden={hide} onClick={() => deleteCategory(e.id)}>
                                             Delete
                                         </button>
-                                    </li>
-                                </Card>
+                                    </Card>
+                                </li>
+
                             );
                         })}
                     </ul>

@@ -1,9 +1,3 @@
-#budget-cards {
-    display: flex;
-    flex-direction: column;
-    margin: 0 36px;
-}
-
 #add-expense {
     display: flex;
     flex-direction: column;
@@ -21,6 +15,16 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+#remaining-budget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-expense-header {
+    margin-top: 16px;
+}
+
 #submit-btn {
     margin: 16px 16px 0 16px;
 }
@@ -32,13 +36,14 @@
     margin: 8px;
 }
 
-label {
-    margin: auto;
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-li {
-    text-align: center;
-    width: 100%;
+label {
+    margin: auto;
 }
 
 @media (min-width: 768px) {

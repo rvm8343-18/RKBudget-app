@@ -110,7 +110,8 @@ function BudgetStatsPage() {
 
                             return (
                                 <li key={e.id}>
-                                    <Card className="budget-card" header={<div className="card-header">{e.name}: {remainingDisplay}</div>} clickable={true}>
+                                    <Card className="budget-card" header={<div><div className="card-header">{e.name}:</div><div className="card-header">{remainingDisplay}</div></div>} clickable={true}>
+
                                         <div>Amount Spent: {spentDisplay}</div>
                                         <div>Starting Budget: {limitDisplay}</div>
                                     </Card>
@@ -121,7 +122,7 @@ function BudgetStatsPage() {
                 </div>
 
                 <div id="add-expense">
-                    <h2>Add Expense</h2>
+                    <h2 id="add-expense-header">Add Expense</h2>
                     <form onSubmit={handleSubmit} id="expense-form">
                         <div id="expense-grid">
 

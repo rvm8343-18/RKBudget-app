@@ -6,6 +6,7 @@
     --green: #68A357;
     --red: #E23C47;
     --yellow: #FA9500;
+    --blue: #3E88A3;
 
     font-family: Inter, system-ui, sans-serif;
 }
@@ -22,13 +23,17 @@ h1 {
 }
 
 h2 {
-    color: var(--accent);
+    color: var(--blue);
+    margin-top: 0;
+}
+
+h3 {
+    margin-top: 0;
 }
 
 h1,
 h2 {
     text-align: center;
-    margin-top: 16px;
 }
 
 input,

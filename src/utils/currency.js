@@ -5,6 +5,8 @@ import { getDate } from "./date.js";
 const DAILY_RATE_CACHE_KEY = "jpy_usd_daily_rate";
 const HISTORICAL_RATE_CACHE_PREFIX = "jpy_usd_rate_";
 
+const formatter = new Intl.NumberFormat('en-US');
+
 // Rate for a specific "YYYY-MM-DD" purchase date. Historical rates never
 // change once published, so once fetched they're cached in localStorage
 // permanently (today's rate is provisional, so it's re-fetched each call
@@ -120,7 +122,7 @@ export function convertUSDtoJPY(amountUSD, rate) {
 
 export function formatAmount(amount, currency) {
     if (currency === "USD") {
-        return `$${amount.toFixed(2)}`;
+        return `$${formatter.format(amount.toFixed(2))}`;
     }
     return `¥${Math.round(amount).toLocaleString()}`;
 }

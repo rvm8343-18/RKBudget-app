@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+#budget-list-header {
+    margin-top: 16px;
+}
+
 .inputs {
     display: flex;
     flex-direction: column;
@@ -16,10 +20,14 @@ label {
     margin: auto;
 }
 
+li {
+    padding: 0 12px;
+}
+
 @media (min-width: 768px) {
     #budget-cards {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 8px;
+        grid-gap: 16px;
     }
 }

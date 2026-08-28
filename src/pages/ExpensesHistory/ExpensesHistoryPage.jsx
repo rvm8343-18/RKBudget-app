@@ -99,16 +99,16 @@ function ExpensesPage() {
             <ul id="expense-cards">
                 {expenses.map((e) => (
                     <li key={e.id}>
-                        <Card header={<h2 className="card-header">{e.category}</h2>} clickable={false}>
-                            <div className="detail-items"><div>Amount JPY: </div><div className="details">{displayAmount(e, "JYP")}</div></div>
-                            <div className="detail-items"><div>Amount USD: </div><div className="details">{displayAmount(e, "USD")}</div></div>
-                            <div className="detail-items"><div>Date: </div><div className="details">{e.purchaseDate ?? "—"}</div></div>
-                            <div className="detail-items"><div>User: </div><div className="details">{e.user}</div></div>
-                            <div className="detail-items"><div>Memo: </div><div className="details">{e.memo}</div></div>
+                        <Card header={<h3 className="card-header expense-category">{e.category}</h3>} clickable={false}>
+                            <div className="detail-items"><div className="detail-title">Amount JPY: </div><div className="details">{displayAmount(e, "JYP")}</div></div>
+                            <div className="detail-items"><div className="detail-title">Amount USD: </div><div className="details">{displayAmount(e, "USD")}</div></div>
+                            <div className="detail-items"><div className="detail-title">Date: </div><div className="details">{e.purchaseDate ?? "—"}</div></div>
+                            <div className="detail-items"><div className="detail-title">User: </div><div className="details">{e.user}</div></div>
+                            <div className="detail-items"><div className="detail-title">Memo: </div><div className="details">{e.memo}</div></div>
+                            <button id={e.id} className="delete-btn" hidden={hide} onClick={() => deleteExpense(e.id)}>
+                                Delete
+                            </button>
                         </Card>
-                        <button id={e.id} className="delete-btn" hidden={hide} onClick={() => deleteExpense(e.id)}>
-                            Delete
-                        </button>
                     </li>
                 ))}
             </ul>

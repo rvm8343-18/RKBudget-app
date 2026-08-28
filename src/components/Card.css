@@ -6,17 +6,13 @@
     background: white;
     border: 1px solid var(--accent);
     border-radius: 16px;
-    padding: 24px;
-    margin: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     transition: hidden 0.3s ease-in-out .5s;
-    width: 80%;
-    max-width: 428px;
-    height: 80%;
-}
-
-.card-main-header {
-    font-size: 2rem;
+    padding: 24px;
+    margin: 8px;
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
 }
 
 .card-header {

@@ -4,6 +4,7 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 import { getDate } from "../../utils/date";
 import { useCurrency } from "../../context/CurrencyContext";
 import { getRateForDate, convertJPYtoUSD, convertUSDtoJPY, formatAmount } from "../../utils/currency";
+
 import "./BudgetStatsPage.css";
 import Card from "../../components/Card.jsx";
 
@@ -12,7 +13,7 @@ function BudgetStatsPage() {
     const [expenseCurrency, setExpenseCurrency] = useState("JPY");
     const [category, setCategory] = useState("");
     const [memo, setMemo] = useState("");
-    const [user, setUser] = useState("Rayna");
+    const [user, setUser] = useState("R");
     const [purchaseDate, setPurchaseDate] = useState(new Date().toISOString().slice(0, 10));
     const [categories, setCategories] = useState([]);
     const [expenses, setExpenses] = useState([]);
@@ -111,7 +112,6 @@ function BudgetStatsPage() {
                             return (
                                 <li key={e.id}>
                                     <Card className="budget-card" header={<div><div className="card-header">{e.name}:</div><div className="card-header">{remainingDisplay}</div></div>} clickable={true}>
-
                                         <div>Amount Spent: {spentDisplay}</div>
                                         <div>Starting Budget: {limitDisplay}</div>
                                     </Card>
@@ -122,10 +122,10 @@ function BudgetStatsPage() {
                 </div>
 
                 <div id="add-expense">
-                    <h2 id="add-expense-header">Add Expense</h2>
-                    <form onSubmit={handleSubmit} id="expense-form">
-                        <div id="expense-grid">
 
+                    <form onSubmit={handleSubmit} id="expense-form">
+                        <h2 id="add-expense-header">Add Expense</h2>
+                        <div id="expense-grid">
                             <div className="expense-grid-item">
                                 <label htmlFor="amount">Amount:</label>
                                 <input
@@ -169,8 +169,8 @@ function BudgetStatsPage() {
                             <div className="expense-grid-item">
                                 <label htmlFor="user">User:</label>
                                 <select id="user" value={user} onChange={(e) => setUser(e.target.value)}>
-                                    <option key="R" value="Rayna">Rayna</option>
-                                    <option key="K" value="Keiki">Keiki</option>
+                                    <option key="R" value="R">R</option>
+                                    <option key="K" value="K">K</option>
                                 </select>
                             </div>
 

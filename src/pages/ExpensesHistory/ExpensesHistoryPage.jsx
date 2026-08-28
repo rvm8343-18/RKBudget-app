@@ -99,15 +99,23 @@ function ExpensesPage() {
             <ul id="expense-cards">
                 {expenses.map((e) => (
                     <li key={e.id}>
-                        <Card header={<h3 className="card-header expense-category">{e.category}</h3>} clickable={false}>
-                            <div className="detail-items"><div className="detail-title">Amount JPY: </div><div className="details">{displayAmount(e, "JYP")}</div></div>
-                            <div className="detail-items"><div className="detail-title">Amount USD: </div><div className="details">{displayAmount(e, "USD")}</div></div>
-                            <div className="detail-items"><div className="detail-title">Date: </div><div className="details">{e.purchaseDate ?? "—"}</div></div>
-                            <div className="detail-items"><div className="detail-title">User: </div><div className="details">{e.user}</div></div>
-                            <div className="detail-items"><div className="detail-title">Memo: </div><div className="details">{e.memo}</div></div>
-                            <button id={e.id} className="delete-btn" hidden={hide} onClick={() => deleteExpense(e.id)}>
-                                Delete
-                            </button>
+                        <Card
+                            className="expense-card"
+                            header={<div className="expense-card-header">
+                                <h3 className="card-header expense-category CATEGORY">{e.category}</h3>
+                                <div className="details JYP">{displayAmount(e, "JYP")}</div>
+                                <div className="details USD">{displayAmount(e, "USD")}</div>
+                            </div>}
+                            clickable={true}
+                        >
+                            <hr aria-hidden="true"></hr>
+                            <div className="expense-card-details">
+                                <div className="details DATE">{e.purchaseDate ?? "—"}</div>
+                                <div className="details USER">{e.user}</div>
+                            </div>
+                            <hr aria-hidden="true"></hr>
+                            <div className="detail-items details MEMO">{e.memo}</div>
+
                         </Card>
                     </li>
                 ))}

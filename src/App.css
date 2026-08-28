@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --text-color: #1E2D2F;
     --background-color: #F5F5F5;
@@ -9,6 +13,7 @@
     --blue: #3E88A3;
 
     font-family: Inter, system-ui, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -29,6 +34,7 @@ h2 {
 
 h3 {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 h1,
@@ -180,6 +186,8 @@ button:hover {
         padding: 0 24px;
         font-weight: 500;
         font-size: 1.25rem;
+        position: sticky;
+        top: 0;
     }
 
     .nav-link:hover {

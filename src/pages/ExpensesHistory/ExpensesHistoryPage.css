@@ -2,26 +2,69 @@
     margin: 8px auto;
 }
 
-.expense-category {
-    color: var(--red)
-}
-
-.detail-items {
+.expense-card-header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2px;
-    margin: 2px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    grid-gap: 8px;
+    grid-template-areas:
+        "CATEGORY CATEGORY"
+        "JYP USD";
     width: 100%;
-    font-size: 1.15rem;
+    column-rule: 1px solid var(--grey);
 }
 
-.detail-title {
-    text-align: center;
-    font-weight: bold;
+.expense-card-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    grid-gap: 8px;
+    grid-template-areas:
+        "DATE USER";
+    width: 100%;
+    column-rule: 1px solid var(--grey);
+}
+
+.CATEGORY {
+    grid-area: CATEGORY;
+    justify-self: left;
+}
+
+.JYP {
+    grid-area: JYP;
+}
+
+.USD {
+    grid-area: USD;
+}
+
+.DATE {
+    grid-area: DATE;
+}
+
+.USER {
+    grid-area: USER;
+}
+
+.MEMO {
+    width: 88%;
+    text-align: left;
+}
+
+.expense-category {
+    color: var(--red);
 }
 
 .details {
-    text-align: left;
+    font-size: 1.15rem;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--grey);
+    width: 88%;
+    margin: 8px auto;
 }
 
 @media (min-width: 768px) {

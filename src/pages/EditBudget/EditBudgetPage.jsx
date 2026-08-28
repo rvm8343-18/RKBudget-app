@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { getDate } from "../../utils/date.js";
-import { useCurrency } from "../../context/CurrencyContext";
 import { getDailyRate, convertJPYtoUSD, convertUSDtoJPY, formatAmount } from "../../utils/currency";
 
 import "./EditBudgetPage.css";
@@ -17,8 +16,6 @@ function EditBudgetPage() {
     const [limitCurrency, setLimitCurrency] = useState("JPY");
     const [categories, setCategories] = useState([]);
     const [hide, setHidden] = useState(false);
-
-    const { displayCurrency } = useCurrency();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -170,18 +167,17 @@ function EditBudgetPage() {
                     <h2 id="budget-list-header">Budget So Far...</h2>
                     <ul id="budget-cards">
                         {categories.map((e) => {
-                            let limitDisplay;
-                            if (displayCurrency === "USD") {
-                                limitDisplay = formatAmount(Number(e.limitUSD), "USD");
-                            } else {
-                                limitDisplay = formatAmount(Number(e.limitJPY), "JPY");
-                            }
+                            let limitDisplayJPY = formatAmount(Number(e.limitJPY), "JPY");
+                            let limitDisplayUSD = formatAmount(Number(e.limitUSD), "USD");
 
                             return (
                                 <li key={e.id} >
                                     <Card header={<div className="card-header">{e.name}</div>}>
                                         <div className="budgetElem">
-                                            {limitDisplay}
+                                            {limitDisplayJPY}
+                                        </div>
+                                        <div className="budgetElem">
+                                            {limitDisplayUSD}
                                         </div>
                                         <button id={e.id} className="delete-btn" hidden={hide} onClick={() => deleteCategory(e.id)}>
                                             Delete
